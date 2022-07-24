@@ -568,6 +568,7 @@ public class CallbackInjector extends Injector {
 
                         callback.inject();
                         this.info.notifyInjected(callback.target);
+                        return;
                     }
                 }
             } else {
@@ -810,11 +811,8 @@ public class CallbackInjector extends Injector {
                     }
                 }
 
-                new RuntimeException(callbackMethod.name + callbackMethod.desc).printStackTrace();
-
                 for (int i = 0; i < matchedIndexes.size(); i++) {
                     Integer pos = matchedIndexes.get(i);
-                    System.out.println(callbackMethod.name + callbackMethod.desc + " " + pos + " " + localTypes[pos].getDescriptor());
                     callback.add(new VarInsnNode(Type.getType(actualInjectorLocals.get(i)).getOpcode(Opcodes.ILOAD), pos));
                 }
             } else {
