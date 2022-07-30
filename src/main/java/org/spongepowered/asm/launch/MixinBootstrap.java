@@ -135,7 +135,7 @@ public abstract class MixinBootstrap {
     /**
      * Phase 1 of mixin initialisation
      */
-    static boolean start() {
+    public static boolean start() {
         if (MixinBootstrap.isSubsystemRegistered()) {
             if (!MixinBootstrap.checkSubsystemVersion()) {
                 throw new MixinInitialisationError("Mixin subsystem version " + MixinBootstrap.getActiveSubsystemVersion()
@@ -176,7 +176,7 @@ public abstract class MixinBootstrap {
     /**
      * Phase 2 of mixin initialisation, initialise the phases
      */
-    static void doInit(CommandLineOptions args) {
+    public static void doInit(CommandLineOptions args) {
         if (!MixinBootstrap.initialised) {
             if (MixinBootstrap.isSubsystemRegistered()) {
                 MixinBootstrap.logger.warn("Multiple Mixin containers present, init suppressed for {}", MixinBootstrap.VERSION);
@@ -198,7 +198,7 @@ public abstract class MixinBootstrap {
         }
     }
 
-    static void inject() {
+    public static void inject() {
         MixinBootstrap.getPlatform().inject();
     }
 
@@ -234,7 +234,7 @@ public abstract class MixinBootstrap {
 
     @SuppressWarnings("unchecked")
     private static List<IMixinInternal> getInternals() throws MixinError {
-        List<IMixinInternal> internals = new ArrayList<IMixinInternal>();
+        List<IMixinInternal> internals = new ArrayList<>();
         try {
             Class<IMixinInternal> clTransformerFactory = (Class<IMixinInternal>)Class.forName(MixinBootstrap.MIXIN_TRANSFORMER_FACTORY_CLASS);
             Constructor<IMixinInternal> ctor = clTransformerFactory.getDeclaredConstructor();

@@ -66,7 +66,7 @@ public class InjectionPointData {
     /**
      * K/V arguments parsed from the "args" node in the {@link At} annotation 
      */
-    private final Map<String, String> args = new HashMap<String, String>();
+    private final Map<String, String> args = new HashMap<>();
     
     /**
      * Injection point context (annotated method) 

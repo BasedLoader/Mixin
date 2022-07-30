@@ -47,7 +47,7 @@ class MixinCoprocessorSyntheticInner extends MixinCoprocessor {
     /**
      * Synthetic inner classes in mixins
      */
-    private final Set<String> syntheticInnerClasses = new HashSet<String>();
+    private final Set<String> syntheticInnerClasses = new HashSet<>();
 
     MixinCoprocessorSyntheticInner() {
     }

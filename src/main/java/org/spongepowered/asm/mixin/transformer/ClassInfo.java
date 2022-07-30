@@ -525,7 +525,7 @@ public final class ClassInfo {
         }
 
         private List<FrameData> gatherFrames(MethodNode method) {
-            List<FrameData> frames = new ArrayList<FrameData>();
+            List<FrameData> frames = new ArrayList<>();
             for (Iterator<AbstractInsnNode> iter = method.instructions.iterator(); iter.hasNext();) {
                 AbstractInsnNode insn = iter.next();
                 if (insn instanceof FrameNode) {
@@ -674,7 +674,7 @@ public final class ClassInfo {
      * Loading and parsing classes is expensive, so keep a cache of all the
      * information we generate
      */
-    private static final Map<String, ClassInfo> cache = new HashMap<String, ClassInfo>();
+    private static final Map<String, ClassInfo> cache = new HashMap<>();
 
     private static final ClassInfo OBJECT = new ClassInfo();
 
@@ -737,7 +737,7 @@ public final class ClassInfo {
      * Map of mixin types to corresponding supertypes, to avoid repeated
      * lookups
      */
-    private final Map<ClassInfo, ClassInfo> correspondingTypes = new HashMap<ClassInfo, ClassInfo>();
+    private final Map<ClassInfo, ClassInfo> correspondingTypes = new HashMap<>();
 
     /**
      * Mixin info if this class is a mixin itself
@@ -836,14 +836,14 @@ public final class ClassInfo {
         try {
             this.name = classNode.name;
             this.superName = classNode.superName != null ? classNode.superName : ClassInfo.JAVA_LANG_OBJECT;
-            this.initialisers = new HashSet<Method>();
-            this.methods = new HashSet<Method>();
-            this.fields = new HashSet<Field>();
+            this.initialisers = new HashSet<>();
+            this.methods = new HashSet<>();
+            this.fields = new HashSet<>();
             this.isInterface = ((classNode.access & Opcodes.ACC_INTERFACE) != 0);
-            this.interfaces = new HashSet<String>();
+            this.interfaces = new HashSet<>();
             this.isMixin = classNode instanceof MixinClassNode;
             this.mixin = this.isMixin ? ((MixinClassNode)classNode).getMixin() : null;
-            this.mixins = this.isMixin ? Collections.<MixinInfo>emptySet() : new HashSet<MixinInfo>();
+            this.mixins = this.isMixin ? Collections.<MixinInfo>emptySet() : new HashSet<>();
 
             this.interfaces.addAll(classNode.interfaces);
 
@@ -892,7 +892,7 @@ public final class ClassInfo {
                 this.nestHost = ClassNodeAdapter.getNestHostClass(classNode);
                 List<String> nestMembers = ClassNodeAdapter.getNestMembers(classNode);
                 if (nestMembers != null) {
-                    this.nestMembers = new LinkedHashSet<String>();
+                    this.nestMembers = new LinkedHashSet<>();
                     this.nestMembers.addAll(nestMembers);
                 }
             }
@@ -933,7 +933,7 @@ public final class ClassInfo {
      */
     void addAppliedMixin(MixinInfo mixin) {
         if (this.appliedMixins == null) {
-            this.appliedMixins = new HashSet<MixinInfo>(); 
+            this.appliedMixins = new HashSet<>();
         }
         this.appliedMixins.add(mixin);
     }
@@ -1174,7 +1174,7 @@ public final class ClassInfo {
      */
     List<ClassInfo> getTargets() {
         if (this.mixin != null) {
-            List<ClassInfo> targets = new ArrayList<ClassInfo>();
+            List<ClassInfo> targets = new ArrayList<>();
             targets.add(this);
             targets.addAll(this.mixin.getTargets());
             return targets;
@@ -1203,7 +1203,7 @@ public final class ClassInfo {
      * @return read-only view of class methods
      */
     public Set<Method> getInterfaceMethods(boolean includeMixins) {
-        Set<Method> methods = new HashSet<Method>();
+        Set<Method> methods = new HashSet<>();
 
         ClassInfo supClass = this.addMethodsRecursive(methods, includeMixins);
         if (!this.isInterface) {
@@ -1395,7 +1395,7 @@ public final class ClassInfo {
      * @return Matched superclass or null if not found
      */
     public ClassInfo findSuperClass(String superClass, Traversal traversal) {
-        return this.findSuperClass(superClass, traversal, false, new HashSet<String>());
+        return this.findSuperClass(superClass, traversal, false, new HashSet<>());
     }
     
     /**
@@ -1412,7 +1412,7 @@ public final class ClassInfo {
             return null;
         }
         
-        return this.findSuperClass(superClass, traversal, includeInterfaces, new HashSet<String>());
+        return this.findSuperClass(superClass, traversal, includeInterfaces, new HashSet<>());
     }
     
     private ClassInfo findSuperClass(String superClass, Traversal traversal, boolean includeInterfaces, Set<String> traversed) {

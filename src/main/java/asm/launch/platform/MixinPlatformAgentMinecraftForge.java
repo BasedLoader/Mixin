@@ -22,13 +22,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.asm.launch.platform;
+package asm.launch.platform;
 
 import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.Locale;
 import java.util.Optional;
 
+import org.spongepowered.asm.launch.platform.IMixinPlatformServiceAgent;
+import org.spongepowered.asm.launch.platform.MixinPlatformAgentAbstract;
+import org.spongepowered.asm.launch.platform.MixinPlatformManager;
 import org.spongepowered.asm.launch.platform.container.IContainerHandle;
 import org.spongepowered.asm.util.Constants;
 

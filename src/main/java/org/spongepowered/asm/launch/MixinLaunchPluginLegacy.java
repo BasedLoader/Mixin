@@ -22,7 +22,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package asm.launch;
+package org.spongepowered.asm.launch;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,12 +32,13 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Consumer;
 
+import asm.launch.IClassProcessor;
+import asm.launch.Phases;
 import asm.service.modlauncher.MixinServiceModLauncher;
 import asm.service.modlauncher.ModLauncherAuditTrail;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.ClassNode;
-import org.spongepowered.asm.launch.MixinBootstrap;
 import org.spongepowered.asm.launch.platform.CommandLineOptions;
 import org.spongepowered.asm.service.IClassBytecodeProvider;
 import org.spongepowered.asm.service.IMixinService;

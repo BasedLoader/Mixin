@@ -22,15 +22,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.asm.service.modlauncher;
+package asm.service.modlauncher;
 
 import java.util.EnumSet;
 
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.ClassNode;
-import org.spongepowered.asm.launch.IClassProcessor;
+import asm.launch.IClassProcessor;
 import org.spongepowered.asm.launch.MixinLaunchPluginLegacy;
-import org.spongepowered.asm.launch.Phases;
+import asm.launch.Phases;
 import org.spongepowered.asm.mixin.MixinEnvironment;
 import org.spongepowered.asm.mixin.transformer.IMixinTransformer;
 import org.spongepowered.asm.mixin.transformer.IMixinTransformerFactory;

@@ -42,7 +42,7 @@ import org.spongepowered.asm.service.MixinService;
  */
 public class MixinContainer {
 
-    private static final List<String> agentClasses = new ArrayList<String>();
+    private static final List<String> agentClasses = new ArrayList<>();
     
     static {
         GlobalProperties.put(GlobalProperties.Keys.AGENTS, MixinContainer.agentClasses);
@@ -56,7 +56,7 @@ public class MixinContainer {
     
     private final IContainerHandle handle;
     
-    private final List<IMixinPlatformAgent> agents = new ArrayList<IMixinPlatformAgent>();
+    private final List<IMixinPlatformAgent> agents = new ArrayList<>();
 
     public MixinContainer(MixinPlatformManager manager, IContainerHandle handle) {
         this.handle = handle;
@@ -103,7 +103,7 @@ public class MixinContainer {
      * Get phase provider names from all agents in this container
      */
     public Collection<String> getPhaseProviders() {
-        List<String> phaseProviders = new ArrayList<String>();
+        List<String> phaseProviders = new ArrayList<>();
         for (IMixinPlatformAgent agent : this.agents) {
             String phaseProvider = agent.getPhaseProvider();
             if (phaseProvider != null) {

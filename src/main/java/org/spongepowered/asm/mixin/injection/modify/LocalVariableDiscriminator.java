@@ -178,7 +178,7 @@ public class LocalVariableDiscriminator {
         }
         
         private void initOrdinals() {
-            Map<Type, Integer> ordinalMap = new HashMap<Type, Integer>();
+            Map<Type, Integer> ordinalMap = new HashMap<>();
             for (int l = 0; l < this.locals.length; l++) {
                 Integer ordinal = Integer.valueOf(0);
                 if (this.locals[l] != null) {
@@ -415,7 +415,7 @@ public class LocalVariableDiscriminator {
         int index = Annotations.<Integer>getValue(annotation, "index", -1);
         boolean print = Annotations.<Boolean>getValue(annotation, "print", Boolean.FALSE).booleanValue();
         
-        Set<String> names = new HashSet<String>();
+        Set<String> names = new HashSet<>();
         List<String> namesList = Annotations.<List<String>>getValue(annotation, "name", (List<String>)null);
         if (namesList != null) {
             names.addAll(namesList);

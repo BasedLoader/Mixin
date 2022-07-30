@@ -68,7 +68,7 @@ public final class MixinService {
             
         }
         
-        private final List<LogEntry> buffer = new ArrayList<LogEntry>();
+        private final List<LogEntry> buffer = new ArrayList<>();
         
         private ILogger logger;
 
@@ -119,7 +119,7 @@ public final class MixinService {
     
     private ServiceLoader<IMixinServiceBootstrap> bootstrapServiceLoader;
     
-    private final Set<String> bootedServices = new HashSet<String>(); 
+    private final Set<String> bootedServices = new HashSet<>();
 
     /**
      * Service loader 
@@ -231,7 +231,7 @@ public final class MixinService {
         
         this.serviceLoader = ServiceLoader.<IMixinService>load(IMixinService.class, this.getClass().getClassLoader());
         Iterator<IMixinService> iter = this.serviceLoader.iterator();
-        List<String> badServices = new ArrayList<String>();
+        List<String> badServices = new ArrayList<>();
         int brokenServiceCount = 0;
         while (iter.hasNext()) {
             try {

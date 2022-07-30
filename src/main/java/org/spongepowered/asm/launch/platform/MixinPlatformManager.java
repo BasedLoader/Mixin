@@ -65,7 +65,7 @@ public class MixinPlatformManager {
     /**
      * Tweak containers
      */
-    private final Map<IContainerHandle, MixinContainer> containers = new LinkedHashMap<IContainerHandle, MixinContainer>();
+    private final Map<IContainerHandle, MixinContainer> containers = new LinkedHashMap<>();
     
     /**
      * Connectors 
@@ -208,7 +208,7 @@ public class MixinPlatformManager {
             throw new ServiceVersionError("Mixin service is out of date");
         }
         
-        List<IContainerHandle> existingContainers = new ArrayList<IContainerHandle>(this.containers.keySet());
+        List<IContainerHandle> existingContainers = new ArrayList<>(this.containers.keySet());
         for (IContainerHandle existingContainer : existingContainers) {
             this.addNestedContainers(existingContainer);
         }

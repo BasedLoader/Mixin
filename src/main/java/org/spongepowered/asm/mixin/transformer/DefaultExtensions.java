@@ -43,7 +43,7 @@ final class DefaultExtensions {
 
     static void create(final MixinEnvironment environment, final Extensions extensions, final SyntheticClassRegistry registry,
             final MixinCoprocessorNestHost nestHostCoprocessor) {
-        IConsumer<ISyntheticClassInfo> registryDelegate = new IConsumer<ISyntheticClassInfo>() {
+        IConsumer<ISyntheticClassInfo> registryDelegate = new IConsumer<>() {
             @Override
             public void accept(ISyntheticClassInfo item) {
                 registry.registerSyntheticClass(item);

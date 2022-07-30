@@ -691,7 +691,7 @@ public abstract class ElementNode<TNode> {
      * @return List of wrapped nodes
      */
     public static <TNode> List<ElementNode<TNode>> listOf(ClassNode owner, List<TNode> list) {
-        List<ElementNode<TNode>> nodes = new ArrayList<ElementNode<TNode>>();
+        List<ElementNode<TNode>> nodes = new ArrayList<>();
         for (TNode node : list) {
             nodes.add(ElementNode.<TNode>of(owner, node));
         }
@@ -706,7 +706,7 @@ public abstract class ElementNode<TNode> {
      * @return List of wrapped nodes
      */
     public static List<ElementNode<FieldNode>> fieldList(ClassNode owner) {
-        List<ElementNode<FieldNode>> fields = new ArrayList<ElementNode<FieldNode>>();
+        List<ElementNode<FieldNode>> fields = new ArrayList<>();
         for (FieldNode field : owner.fields) {
             fields.add(new ElementNodeField(owner, field));
         }
@@ -721,7 +721,7 @@ public abstract class ElementNode<TNode> {
      * @return List of wrapped nodes
      */
     public static List<ElementNode<MethodNode>> methodList(ClassNode owner) {
-        List<ElementNode<MethodNode>> methods = new ArrayList<ElementNode<MethodNode>>();
+        List<ElementNode<MethodNode>> methods = new ArrayList<>();
         for (MethodNode method : owner.methods) {
             methods.add(new ElementNodeMethod(owner, method));
         }

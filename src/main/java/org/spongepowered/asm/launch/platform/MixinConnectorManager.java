@@ -44,9 +44,9 @@ public class MixinConnectorManager {
      */
     private static final ILogger logger = MixinService.getService().getLogger("mixin");
     
-    private final Set<String> connectorClasses = new LinkedHashSet<String>();
+    private final Set<String> connectorClasses = new LinkedHashSet<>();
 
-    private final List<IMixinConnector> connectors = new ArrayList<IMixinConnector>();
+    private final List<IMixinConnector> connectors = new ArrayList<>();
 
     MixinConnectorManager() {
     }

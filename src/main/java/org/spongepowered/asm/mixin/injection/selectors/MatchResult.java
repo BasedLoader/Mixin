@@ -74,12 +74,11 @@ public enum MatchResult {
     public boolean isMatch() {
         return this.ordinal() >= MatchResult.MATCH.ordinal();
     }
-    
-    /**
-     * Get whether this is an exact match
-     */
-    public boolean isExactMatch() {
-        return this == MatchResult.EXACT_MATCH;
-    }
-    
+
+	/**
+	 * Get whether this is an exact match
+	 */
+	public boolean isExactMatch() {
+		return this == MatchResult.EXACT_MATCH;
+	}
 }

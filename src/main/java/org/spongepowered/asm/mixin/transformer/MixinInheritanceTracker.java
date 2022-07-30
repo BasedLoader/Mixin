@@ -53,7 +53,7 @@ public enum MixinInheritanceTracker implements IListener {
 			List<MixinInfo> children = parentMixins.get(superType.getName());
 
 			if (children == null) {
-				parentMixins.put(superType.getName(), children = new ArrayList<MixinInfo>());
+				parentMixins.put(superType.getName(), children = new ArrayList<>());
 			}
 
 			children.add(mixin);
@@ -68,7 +68,7 @@ public enum MixinInheritanceTracker implements IListener {
 		List<MixinInfo> children = parentMixins.get(owner);
 		if (children == null) return Collections.emptyList();
 
-		List<MethodNode> out = new ArrayList<MethodNode>(children.size());
+		List<MethodNode> out = new ArrayList<>(children.size());
 
 		for (MixinInfo child : children) {
 			ClassNode node = child.getClassNode(ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
@@ -95,5 +95,5 @@ public enum MixinInheritanceTracker implements IListener {
 		return out.isEmpty() ? Collections.<MethodNode>emptyList() : out;
 	}
 
-	private final Map<String, List<MixinInfo>> parentMixins = new HashMap<String, List<MixinInfo>>();
+	private final Map<String, List<MixinInfo>> parentMixins = new HashMap<>();
 }

@@ -38,7 +38,7 @@ class MixinCoprocessorPassthrough extends MixinCoprocessor {
     /**
      * Loadable classes within mixin packages
      */
-    private final Set<String> loadable = new HashSet<String>();
+    private final Set<String> loadable = new HashSet<>();
 
     MixinCoprocessorPassthrough() {
     }

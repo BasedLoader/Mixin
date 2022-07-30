@@ -294,28 +294,28 @@ public class ClassSignature {
         
         private List<Token> getClassBound() {
             if (this.classBound == null) {
-                this.classBound = new ArrayList<Token>();
+                this.classBound = new ArrayList<>();
             }
             return this.classBound;
         }
         
         private List<Token> getIfaceBound() {
             if (this.ifaceBound == null) {
-                this.ifaceBound = new ArrayList<Token>();
+                this.ifaceBound = new ArrayList<>();
             }
             return this.ifaceBound;
         }
         
         private List<IToken> getSignature() {
             if (this.signature == null) {
-                this.signature = new ArrayList<IToken>();
+                this.signature = new ArrayList<>();
             }
             return this.signature;
         }
         
         private List<IToken> getSuffix() {
             if (this.suffix == null) {
-                this.suffix = new ArrayList<IToken>();
+                this.suffix = new ArrayList<>();
             }
             return this.suffix;
         }
@@ -933,7 +933,7 @@ public class ClassSignature {
      */
     class SignatureRemapper extends SignatureWriter {
         
-        private final Set<String> localTypeVars = new HashSet<String>();
+        private final Set<String> localTypeVars = new HashSet<>();
         
         @Override
         public void visitFormalTypeParameter(String name) {
@@ -959,7 +959,7 @@ public class ClassSignature {
      * Type vars defined in this signature, represents the list of formal
      * parameters, ordered
      */
-    private final Map<TypeVar, TokenHandle> types = new LinkedHashMap<TypeVar, TokenHandle>();
+    private final Map<TypeVar, TokenHandle> types = new LinkedHashMap<>();
     
     /**
      * The superclass defined in the signature
@@ -969,12 +969,12 @@ public class ClassSignature {
     /**
      * Interfaces mentioned in the signature
      */
-    private final List<Token> interfaces = new ArrayList<Token>();
+    private final List<Token> interfaces = new ArrayList<>();
     
     /**
      * Interfaces added manually
      */
-    private final Deque<String> rawInterfaces = new LinkedList<String>();
+    private final Deque<String> rawInterfaces = new LinkedList<>();
     
     ClassSignature() {
     }
@@ -1137,7 +1137,7 @@ public class ClassSignature {
      */
     public void merge(ClassSignature other) {
         try {
-            Set<String> typeVars = new HashSet<String>();
+            Set<String> typeVars = new HashSet<>();
             for (TypeVar typeVar : this.types.keySet()) {
                 typeVars.add(typeVar.toString());
             }

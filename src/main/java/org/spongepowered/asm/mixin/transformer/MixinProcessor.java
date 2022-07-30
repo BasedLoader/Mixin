@@ -152,12 +152,12 @@ class MixinProcessor {
     /**
      * All mixin configuration bundles
      */
-    private final List<MixinConfig> configs = new ArrayList<MixinConfig>();
+    private final List<MixinConfig> configs = new ArrayList<>();
     
     /**
      * Uninitialised mixin configuration bundles 
      */
-    private final List<MixinConfig> pendingConfigs = new ArrayList<MixinConfig>();
+    private final List<MixinConfig> pendingConfigs = new ArrayList<>();
     
     /**
      * Re-entrance detector
@@ -240,7 +240,7 @@ class MixinProcessor {
      * @param environment current environment
      */
     public void audit(MixinEnvironment environment) {
-        Set<String> unhandled = new HashSet<String>();
+        Set<String> unhandled = new HashSet<>();
         
         for (MixinConfig config : this.configs) {
             unhandled.addAll(config.getUnhandledTargets());
@@ -338,7 +338,7 @@ class MixinProcessor {
             for (MixinConfig config : this.configs) {
                 if (config.hasMixinsFor(name)) {
                     if (mixins == null) {
-                        mixins = new TreeSet<MixinInfo>();
+                        mixins = new TreeSet<>();
                     }
                     
                     // Get and sort mixins for the class
@@ -426,7 +426,7 @@ class MixinProcessor {
         if (this.lock.getDepth() > 0) {
             throw new MixinApplyError("Cannot reload mixin if re-entrant lock entered");
         }
-        List<String> targets = new ArrayList<String>();
+        List<String> targets = new ArrayList<>();
         for (MixinConfig config : this.configs) {
             targets.addAll(config.reloadMixin(mixinClass, classNode));
         }
@@ -553,7 +553,7 @@ class MixinProcessor {
                 continue;
             }
             
-            Set<String> otherTargets = new HashSet<String>();
+            Set<String> otherTargets = new HashSet<>();
             for (MixinConfig otherConfig : this.pendingConfigs) {
                 if (!otherConfig.equals(config)) {
                     otherTargets.addAll(otherConfig.getTargets());
@@ -640,7 +640,7 @@ class MixinProcessor {
     }
 
     private List<IMixinErrorHandler> getErrorHandlers(Phase phase) {
-        List<IMixinErrorHandler> handlers = new ArrayList<IMixinErrorHandler>();
+        List<IMixinErrorHandler> handlers = new ArrayList<>();
         
         for (String handlerClassName : Mixins.getErrorHandlerClasses()) {
             try {

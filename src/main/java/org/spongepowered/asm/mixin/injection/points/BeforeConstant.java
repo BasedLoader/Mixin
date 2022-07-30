@@ -187,7 +187,7 @@ public class BeforeConstant extends InjectionPoint {
             throw new InvalidInjectionException(data.getMixin(), "No constant discriminator could be parsed in @At(\"CONSTANT\") args");
         }
         
-        List<Condition> conditions = new ArrayList<Condition>();
+        List<Condition> conditions = new ArrayList<>();
         String strConditions = data.get("expandZeroConditions", "").toLowerCase(Locale.ROOT);
         for (Condition condition : Condition.values()) {
             if (strConditions.contains(condition.name().toLowerCase(Locale.ROOT))) {
@@ -212,7 +212,7 @@ public class BeforeConstant extends InjectionPoint {
     }
 
     private int[] parseExpandOpcodes(List<Condition> conditions) {
-        Set<Integer> opcodes = new HashSet<Integer>();
+        Set<Integer> opcodes = new HashSet<>();
         for (Condition condition : conditions) {
             Condition actual = condition.getEquivalentCondition();
             for (int opcode : actual.getOpcodes()) {

@@ -101,7 +101,7 @@ public final class ClassNodeAdapter {
     public static List<String> getNestMembersAsList(ClassNode classNode) {
         List<String> nestMembers = ClassNodeAdapter.getNestMembers(classNode);
         if (nestMembers == null) {
-            nestMembers = new ArrayList<String>();
+            nestMembers = new ArrayList<>();
             ClassNodeAdapter.setNestMembers(classNode, nestMembers);
         }
         return nestMembers;

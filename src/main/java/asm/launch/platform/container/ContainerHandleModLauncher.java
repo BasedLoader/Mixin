@@ -22,12 +22,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.asm.launch.platform.container;
+package asm.launch.platform.container;
 
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.spongepowered.asm.launch.platform.container.ContainerHandleURI;
+import org.spongepowered.asm.launch.platform.container.ContainerHandleVirtual;
 import org.spongepowered.asm.service.MixinService;
 
 /**

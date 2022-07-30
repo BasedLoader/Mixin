@@ -47,7 +47,7 @@ abstract class ClassContext {
      * therefore require the invocation opcode to be upgraded from INVOKESPECIAL
      * to INVOKEVIRTUAL.  
      */
-    private final Set<Method> upgradedMethods = new HashSet<Method>();
+    private final Set<Method> upgradedMethods = new HashSet<>();
     
     /**
      * Get the internal class name

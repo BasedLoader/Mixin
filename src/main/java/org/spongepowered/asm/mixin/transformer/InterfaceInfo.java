@@ -93,7 +93,7 @@ final class InterfaceInfo {
      * Lazy-loaded methods collection initialiser
      */
     private void initMethods() {
-        this.methods = new HashSet<String>();
+        this.methods = new HashSet<>();
         this.readInterface(this.iface.getInternalName());
     }
     

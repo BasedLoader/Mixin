@@ -51,7 +51,7 @@ public class InjectorTarget {
     /**
      * Cache of slices
      */
-    private final Map<String, InsnListReadOnly> cache = new HashMap<String, InsnListReadOnly>();
+    private final Map<String, InsnListReadOnly> cache = new HashMap<>();
 
     /**
      * Target method data

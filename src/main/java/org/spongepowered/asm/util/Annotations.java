@@ -82,7 +82,7 @@ public final class Annotations {
         @Override
         public List<IAnnotationHandle> getAnnotationList(String key) {
             List<AnnotationNode> value = Annotations.<AnnotationNode>getValue(this.annotation, key, false);
-            List<IAnnotationHandle> list = new ArrayList<IAnnotationHandle>();
+            List<IAnnotationHandle> list = new ArrayList<>();
             if (value != null) {
                 for (AnnotationNode node : value) {
                     list.add(new Handle(node));
@@ -284,7 +284,7 @@ public final class Annotations {
     
     private static List<AnnotationNode> add(List<AnnotationNode> annotations, AnnotationNode node) {
         if (annotations == null) {
-            annotations = new ArrayList<AnnotationNode>(1);
+            annotations = new ArrayList<>(1);
         } else {
             annotations.remove(Annotations.get(annotations, node.desc));
         }
@@ -465,7 +465,7 @@ public final class Annotations {
     }
 
     private static AnnotationNode getSingle(List<AnnotationNode> annotations, Class<? extends Annotation>[] annotationClasses) {
-        List<AnnotationNode> nodes = new ArrayList<AnnotationNode>();
+        List<AnnotationNode> nodes = new ArrayList<>();
         for (Class<? extends Annotation> annotationClass : annotationClasses) {
             AnnotationNode annotation = Annotations.get(annotations, Type.getDescriptor(annotationClass));
             if (annotation != null) {
@@ -605,7 +605,7 @@ public final class Annotations {
         if (value instanceof List) {
             return (List<T>)value;
         } else if (value != null) {
-            List<T> list = new ArrayList<T>();
+            List<T> list = new ArrayList<>();
             list.add((T)value);
             return list;
         }
@@ -631,7 +631,7 @@ public final class Annotations {
             }
             return (List<T>)value;
         } else if (value instanceof String[]) {
-            List<T> list = new ArrayList<T>();
+            List<T> list = new ArrayList<>();
             list.add(Annotations.toEnumValue(enumClass, (String[])value));
             return list;
         }
@@ -662,7 +662,7 @@ public final class Annotations {
                 }
             }
         } else {
-            annotation.values = new ArrayList<Object>();
+            annotation.values = new ArrayList<>();
         }
         
         if (existingIndex > 0) {
@@ -747,7 +747,7 @@ public final class Annotations {
             }
             
             if (to == null) {
-                to = new ArrayList<AnnotationNode>();
+                to = new ArrayList<>();
             }
             
             for (AnnotationNode annotation : from) {

@@ -56,7 +56,7 @@ class MixinCoprocessorNestHost extends MixinCoprocessor {
     /**
      * Classes which are nest hosts with new members injected by mixins 
      */
-    private final Map<String, Set<String>> nestHosts = new HashMap<String, Set<String>>();
+    private final Map<String, Set<String>> nestHosts = new HashMap<>();
 
     MixinCoprocessorNestHost() {
     }
@@ -64,7 +64,7 @@ class MixinCoprocessorNestHost extends MixinCoprocessor {
     void registerNestMember(String hostName, String memberName) {
         Set<String> nestMembers = this.nestHosts.get(hostName);
         if (nestMembers == null) {
-            this.nestHosts.put(hostName, nestMembers = new HashSet<String>());
+            this.nestHosts.put(hostName, nestMembers = new HashSet<>());
         }
         nestMembers.add(memberName);
     }
@@ -93,10 +93,10 @@ class MixinCoprocessorNestHost extends MixinCoprocessor {
         List<String> nestMembers = ClassNodeAdapter.getNestMembers(classNode);
         if (nestMembers == null) {
             // If there are currently no nest members, just set the ones we have
-            nestMembers = new ArrayList<String>(newMembers);
+            nestMembers = new ArrayList<>(newMembers);
         } else {
             // Otherwise add all the new members
-            LinkedHashSet<String> combinedMembers = new LinkedHashSet<String>(nestMembers);
+            LinkedHashSet<String> combinedMembers = new LinkedHashSet<>(nestMembers);
             combinedMembers.addAll(newMembers);
             nestMembers.clear();
             nestMembers.addAll(combinedMembers);

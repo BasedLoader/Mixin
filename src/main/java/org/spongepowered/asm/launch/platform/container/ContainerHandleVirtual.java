@@ -45,13 +45,13 @@ public class ContainerHandleVirtual implements IContainerHandle {
     /**
      * Virtual attributes
      */
-    private final Map<String, String> attributes = new HashMap<String, String>();
+    private final Map<String, String> attributes = new HashMap<>();
     
     /**
      * Virtual nested containers (might be real containers, depending on the
      * purpose of this container
      */
-    private final Set<IContainerHandle> nestedContainers = new LinkedHashSet<IContainerHandle>();
+    private final Set<IContainerHandle> nestedContainers = new LinkedHashSet<>();
 
     /**
      * .ctor

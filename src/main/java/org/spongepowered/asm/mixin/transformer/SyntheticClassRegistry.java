@@ -45,7 +45,7 @@ class SyntheticClassRegistry implements ISyntheticClassRegistry {
     /**
      * Map of class name to {@link ISyntheticClassInfo} structs
      */
-    private final Map<String, ISyntheticClassInfo> classes = new HashMap<String, ISyntheticClassInfo>();
+    private final Map<String, ISyntheticClassInfo> classes = new HashMap<>();
 
     SyntheticClassRegistry() {
     }

@@ -137,7 +137,7 @@ public class InjectorGroupInfo {
     /**
      * Members of this group
      */
-    private final List<InjectionInfo> members = new ArrayList<InjectionInfo>();
+    private final List<InjectionInfo> members = new ArrayList<>();
     
     /**
      * True if this is the default group

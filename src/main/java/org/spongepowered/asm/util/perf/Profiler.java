@@ -569,7 +569,7 @@ public final class Profiler {
         /**
          * Sections to summarise
          */
-        private List<Section> sections = new ArrayList<Section>();
+        private List<Section> sections = new ArrayList<>();
 
         ResultSection(String name) {
             super(name);
@@ -686,7 +686,7 @@ public final class Profiler {
     /**
      * All Profiler instances
      */
-    private static final Map<String, Profiler> profilers = new HashMap<String, Profiler>();
+    private static final Map<String, Profiler> profilers = new HashMap<>();
 
     /**
      * True when profilers are active
@@ -701,17 +701,17 @@ public final class Profiler {
     /**
      * All profiler sections
      */
-    private final Map<String, Section> sections = new TreeMap<String, Profiler.Section>();
+    private final Map<String, Section> sections = new TreeMap<>();
     
     /**
      * Profiler phases, recorded by calling {@link #mark}
      */
-    private final List<String> phases = new ArrayList<String>();
+    private final List<String> phases = new ArrayList<>();
     
     /**
      * Profiler section stack
      */
-    private final Deque<Section> stack = new LinkedList<Section>();
+    private final Deque<Section> stack = new LinkedList<>();
     
     public Profiler(String id) {
         this.id = id;
@@ -1014,8 +1014,8 @@ public final class Profiler {
         // Collect sections from all profilers into ResultSections
         synchronized (Profiler.profilers) {
             id = Joiner.on(',').join(Profiler.profilers.values());
-            allPhases = new LinkedHashSet<String>();
-            allSections = new TreeMap<String, Section>() {
+            allPhases = new LinkedHashSet<>();
+            allSections = new TreeMap<>() {
 
                 private static final long serialVersionUID = 1L;
 
@@ -1039,7 +1039,7 @@ public final class Profiler {
             }
         }
         
-        Profiler.printSummary(id, new ArrayList<String>(allPhases), allSections);
+        Profiler.printSummary(id, new ArrayList<>(allPhases), allSections);
     }
     
     private static void printSummary(String id, List<String> phases, Map<String, Section> sections) {

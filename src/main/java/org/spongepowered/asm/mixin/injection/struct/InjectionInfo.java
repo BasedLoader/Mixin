@@ -195,7 +195,7 @@ public abstract class InjectionInfo extends SpecialMethodInfo implements ISliceC
     /**
      * Registry of subclasses
      */
-    private static Map<String, InjectorEntry> registry = new LinkedHashMap<String, InjectorEntry>();
+    private static Map<String, InjectorEntry> registry = new LinkedHashMap<>();
     
     /**
      * Registered annotations, baked and used to call
@@ -222,12 +222,12 @@ public abstract class InjectionInfo extends SpecialMethodInfo implements ISliceC
     /**
      * Target selector(s)
      */
-    protected final Set<ITargetSelector> selectors = new LinkedHashSet<ITargetSelector>();
+    protected final Set<ITargetSelector> selectors = new LinkedHashSet<>();
     
     /**
      * Target method(s)
      */
-    protected final List<SelectedTarget> targets = new ArrayList<SelectedTarget>();
+    protected final List<SelectedTarget> targets = new ArrayList<>();
     
     /**
      * Method slice descriptors parsed from the annotation
@@ -243,12 +243,12 @@ public abstract class InjectionInfo extends SpecialMethodInfo implements ISliceC
      * Injection points parsed from
      * {@link org.spongepowered.asm.mixin.injection.At} annotations
      */
-    protected final List<InjectionPoint> injectionPoints = new ArrayList<InjectionPoint>();
+    protected final List<InjectionPoint> injectionPoints = new ArrayList<>();
     
     /**
      * Map of lists of nodes enumerated by calling {@link #prepare}
      */
-    protected final Map<Target, List<InjectionNode>> targetNodes = new LinkedHashMap<Target, List<InjectionNode>>();
+    protected final Map<Target, List<InjectionNode>> targetNodes = new LinkedHashMap<>();
     
     /**
      * Number of target methods identified by the injection points 
@@ -268,7 +268,7 @@ public abstract class InjectionInfo extends SpecialMethodInfo implements ISliceC
     /**
      * Methods injected by injectors 
      */
-    private final List<MethodNode> injectedMethods = new ArrayList<MethodNode>(0);
+    private final List<MethodNode> injectedMethods = new ArrayList<>(0);
     
     /**
      * Number of callbacks we expect to inject into targets 
@@ -333,7 +333,7 @@ public abstract class InjectionInfo extends SpecialMethodInfo implements ISliceC
     }
 
     protected void parseSelectors() {
-        Set<ITargetSelector> selectors = new LinkedHashSet<ITargetSelector>();
+        Set<ITargetSelector> selectors = new LinkedHashSet<>();
         TargetSelector.parse(Annotations.<String>getValue(this.annotation, "method", false), this, selectors);
         TargetSelector.parse(Annotations.<AnnotationNode>getValue(this.annotation, "target", false), this, selectors);
         
@@ -568,7 +568,7 @@ public abstract class InjectionInfo extends SpecialMethodInfo implements ISliceC
     public void addMessage(String format, Object... args) {
         super.addMessage(format, args);
         if (this.messages == null) {
-            this.messages = new ArrayList<String>();
+            this.messages = new ArrayList<>();
         }
         String message = String.format(format, args);
         this.messages.add(message);
@@ -808,7 +808,7 @@ public abstract class InjectionInfo extends SpecialMethodInfo implements ISliceC
         
         InjectionInfo.registry.put(entry.annotationDesc, entry);
         
-        ArrayList<Class<? extends Annotation>> annotations = new ArrayList<Class<? extends Annotation>>();
+        ArrayList<Class<? extends Annotation>> annotations = new ArrayList<>();
         for (InjectorEntry injector : InjectionInfo.registry.values()) {
             annotations.add(injector.annotationType);
         }

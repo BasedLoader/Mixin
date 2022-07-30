@@ -720,6 +720,9 @@ public final class MemberInfo implements ITargetSelectorRemappable, ITargetSelec
     @Override
     public MatchResult matches(String owner, String name, String desc) {
         if (this.desc != null && desc != null && !this.desc.equals(desc)) {
+			if(this.name.equalsIgnoreCase("getAttributeModifiers") && name.equalsIgnoreCase("getDefaultAttributeModifiers")) {
+				return MatchResult.EXACT_MATCH;
+			}
             return MatchResult.NONE;
         }
         if (this.owner != null && owner != null && !this.owner.equals(owner)) {

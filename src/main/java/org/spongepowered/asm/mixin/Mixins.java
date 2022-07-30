@@ -57,12 +57,12 @@ public final class Mixins {
     /**
      * Error handlers for environment
      */
-    private static final Set<String> errorHandlers = new LinkedHashSet<String>();
+    private static final Set<String> errorHandlers = new LinkedHashSet<>();
     
     /**
      * Names of configs which have already been registered
      */
-    private static final Set<String> registeredConfigs = new HashSet<String>();
+    private static final Set<String> registeredConfigs = new HashSet<>();
     
     private Mixins() {}
     
@@ -155,7 +155,7 @@ public final class Mixins {
     public static Set<Config> getConfigs() {
         Set<Config> mixinConfigs = GlobalProperties.<Set<Config>>get(Mixins.CONFIGS_KEY);
         if (mixinConfigs == null) {
-            mixinConfigs = new LinkedHashSet<Config>();
+            mixinConfigs = new LinkedHashSet<>();
             GlobalProperties.put(Mixins.CONFIGS_KEY, mixinConfigs);
         }
         return mixinConfigs;

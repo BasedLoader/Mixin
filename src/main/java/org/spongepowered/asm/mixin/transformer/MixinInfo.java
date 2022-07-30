@@ -177,7 +177,7 @@ class MixinInfo implements Comparable<MixinInfo>, IMixinInfo {
         }
         
         public List<FieldNode> getFields() {
-            return new ArrayList<FieldNode>(this.fields);
+            return new ArrayList<>(this.fields);
         }
         
         @Override
@@ -219,22 +219,22 @@ class MixinInfo implements Comparable<MixinInfo>, IMixinInfo {
          * All interfaces implemented by this mixin, including soft
          * implementations
          */
-        protected final Set<String> interfaces = new HashSet<String>();
+        protected final Set<String> interfaces = new HashSet<>();
 
         /**
          * Interfaces soft-implemented using {@link Implements}
          */
-        protected final List<InterfaceInfo> softImplements = new ArrayList<InterfaceInfo>();
+        protected final List<InterfaceInfo> softImplements = new ArrayList<>();
 
         /**
          * Synthetic inner classes
          */
-        protected final Set<String> syntheticInnerClasses = new HashSet<String>();
+        protected final Set<String> syntheticInnerClasses = new HashSet<>();
         
         /**
          * Non-synthetic inner classes
          */
-        protected final Set<String> innerClasses = new HashSet<String>();
+        protected final Set<String> innerClasses = new HashSet<>();
         
         /**
          * Initial ClassNode created for mixin validation, not used for actual
@@ -471,11 +471,11 @@ class MixinInfo implements Comparable<MixinInfo>, IMixinInfo {
             if (!this.interfaces.equals(this.previous.interfaces)) {
                 throw new MixinReloadException(MixinInfo.this, "Cannot change interfaces");
             }
-            if (!new HashSet<InterfaceInfo>(this.softImplements).equals(new HashSet<InterfaceInfo>(this.previous.softImplements))) {
+            if (!new HashSet<>(this.softImplements).equals(new HashSet<>(this.previous.softImplements))) {
                 throw new MixinReloadException(MixinInfo.this, "Cannot change soft interfaces");
             }
             List<ClassInfo> targets = MixinInfo.this.readTargetClasses(this.validationClassNode, true);
-            if (!new HashSet<ClassInfo>(targets).equals(new HashSet<ClassInfo>(targetClasses))) {
+            if (!new HashSet<>(targets).equals(new HashSet<>(targetClasses))) {
                 throw new MixinReloadException(MixinInfo.this, "Cannot change target classes");
             }
             int priority = MixinInfo.this.readPriority(this.validationClassNode);
@@ -639,7 +639,7 @@ class MixinInfo implements Comparable<MixinInfo>, IMixinInfo {
          */
         static class Accessor extends SubType {
             
-            private final Collection<String> interfaces = new ArrayList<String>();
+            private final Collection<String> interfaces = new ArrayList<>();
 
             Accessor(MixinInfo info) {
                 super(info, "@Mixin", false);
@@ -777,12 +777,12 @@ class MixinInfo implements Comparable<MixinInfo>, IMixinInfo {
     /**
      * Mixin targets, read from the {@link Mixin} annotation on the mixin class
      */
-    private final transient List<ClassInfo> targetClasses = new ArrayList<ClassInfo>();
+    private final transient List<ClassInfo> targetClasses = new ArrayList<>();
     
     /**
      * Names of target classes 
      */
-    private final List<String> targetClassNames = new ArrayList<String>();
+    private final List<String> targetClassNames = new ArrayList<>();
     
     /**
      * Intrinsic order (for sorting mixins with identical priority)
@@ -936,7 +936,7 @@ class MixinInfo implements Comparable<MixinInfo>, IMixinInfo {
         }
         
         IClassTracker tracker = this.service.getClassTracker();
-        List<DeclaredTarget> declaredTargets = new ArrayList<DeclaredTarget>();
+        List<DeclaredTarget> declaredTargets = new ArrayList<>();
         for (Object target : this.readTargets(mixin)) {
             DeclaredTarget declaredTarget = DeclaredTarget.of(target, this);
             if (declaredTarget == null) {
@@ -1003,7 +1003,7 @@ class MixinInfo implements Comparable<MixinInfo>, IMixinInfo {
     }
 
     private List<ClassInfo> readTargetClasses(List<DeclaredTarget> declaredTargets) throws InvalidMixinException {
-        List<ClassInfo> targetClasses = new ArrayList<ClassInfo>();
+        List<ClassInfo> targetClasses = new ArrayList<>();
         for (DeclaredTarget target : declaredTargets) {
             ClassInfo targetClass = this.getTargetClass(target);
             if (targetClass != null) {

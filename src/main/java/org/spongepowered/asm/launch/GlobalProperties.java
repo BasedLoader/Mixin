@@ -81,7 +81,7 @@ public final class GlobalProperties {
          */
         public static Keys of(String name) {
             if (Keys.keys == null) {
-                Keys.keys = new HashMap<String, Keys>();                
+                Keys.keys = new HashMap<>();
             }
             
             Keys key = Keys.keys.get(name);

@@ -48,7 +48,7 @@ public class Config {
     /**
      * All loaded configs, stored by name so that parents can be assigned
      */
-    private static final Map<String, Config> allConfigs = new HashMap<String, Config>(); 
+    private static final Map<String, Config> allConfigs = new HashMap<>();
 
     /**
      * Config name, used as identity for the purposes of {@link #equals}

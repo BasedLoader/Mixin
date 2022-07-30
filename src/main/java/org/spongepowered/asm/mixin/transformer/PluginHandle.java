@@ -32,7 +32,6 @@ import org.spongepowered.asm.logging.ILogger;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
-import org.spongepowered.asm.mixin.throwables.CompanionPluginError;
 import org.spongepowered.asm.service.IMixinService;
 import org.spongepowered.asm.service.MixinService;
 
@@ -200,29 +199,18 @@ class PluginHandle {
         }
         
         try {
-            Class<?> pluginClass = this.plugin.getClass();
+            /*Class<?> pluginClass = this.plugin.getClass();
             this.mdPreApply = pluginClass.getMethod("preApply", String.class, org.spongepowered.asm.lib.tree.ClassNode.class, String.class,
                     IMixinInfo.class);
             this.mdPostApply = pluginClass.getMethod("postApply", String.class, org.spongepowered.asm.lib.tree.ClassNode.class, String.class,
-                    IMixinInfo.class);
+                    IMixinInfo.class);*/
         } catch (Throwable th) {
             PluginHandle.logger.catching(th);
         }
     }
 
     private void applyLegacy(Method method, String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
-        try {
-            method.invoke(this.plugin, targetClassName, new org.spongepowered.asm.lib.tree.ClassNode(targetClass), mixinClassName, mixinInfo);
-        } catch (LinkageError err) {
-            throw new CompanionPluginError(this.apiError("Accessing [" + err.getMessage() + "]"), err);
-        } catch (IllegalAccessException ex) {
-            throw new CompanionPluginError(this.apiError("Fallback failed [" + ex.getMessage() + "]"), ex);
-        } catch (IllegalArgumentException ex) {
-            throw new CompanionPluginError(this.apiError("Fallback failed [" + ex.getMessage() + "]"), ex);
-        } catch (InvocationTargetException ex) {
-            Throwable th = ex.getCause() != null ? ex.getCause() : ex;
-            throw new CompanionPluginError(this.apiError("Fallback failed [" + th.getMessage() + "]"), th);
-        }
+        throw new RuntimeException("This method is no longer supported.");
     }
 
     private String apiError(String message) {

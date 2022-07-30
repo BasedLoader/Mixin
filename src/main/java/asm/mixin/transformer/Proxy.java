@@ -22,11 +22,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.asm.mixin.transformer;
+package asm.mixin.transformer;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.spongepowered.asm.mixin.transformer.MixinTransformer;
 import org.spongepowered.asm.service.ILegacyClassTransformer;
 import org.spongepowered.asm.service.MixinService;
 

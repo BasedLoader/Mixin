@@ -63,7 +63,7 @@ class MixinCoprocessorAccessor extends MixinCoprocessor {
     /**
      * Accessor mixins
      */
-    private final Map<String, MixinInfo> accessorMixins = new HashMap<String, MixinInfo>();
+    private final Map<String, MixinInfo> accessorMixins = new HashMap<>();
     
     MixinCoprocessorAccessor(String sessionId) {
         this.sessionId = sessionId;

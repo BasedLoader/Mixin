@@ -265,12 +265,12 @@ final class InnerClassGenerator implements IClassGenerator {
      * Mapping of target class context ids to generated inner class names, used
      * so we don't accidentally conform the same class twice.
      */
-    private final Map<String, String> innerClassNames = new HashMap<String, String>();
+    private final Map<String, String> innerClassNames = new HashMap<>();
 
     /**
      * Mapping of generated class names to the respective inner class info
      */
-    private final Map<String, InnerClassInfo> innerClasses = new HashMap<String, InnerClassInfo>();
+    private final Map<String, InnerClassInfo> innerClasses = new HashMap<>();
     
     /**
      * Coprocessor which handles merging nest members into nest hosts which may

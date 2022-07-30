@@ -257,7 +257,7 @@ public abstract class InjectionPoint {
     /**
      * Available injection point types
      */
-    private static Map<String, Class<? extends InjectionPoint>> types = new HashMap<String, Class<? extends InjectionPoint>>();
+    private static Map<String, Class<? extends InjectionPoint>> types = new HashMap<>();
     
     static {
         // Standard Injection Points
@@ -447,7 +447,7 @@ public abstract class InjectionPoint {
             ArrayList<AbstractInsnNode>[] allNodes = (ArrayList<AbstractInsnNode>[]) Array.newInstance(ArrayList.class, this.components.length);
 
             for (int i = 0; i < this.components.length; i++) {
-                allNodes[i] = new ArrayList<AbstractInsnNode>();
+                allNodes[i] = new ArrayList<>();
                 this.components[i].find(desc, insns, allNodes[i]);
             }
 
@@ -486,7 +486,7 @@ public abstract class InjectionPoint {
 
         @Override
         public boolean find(String desc, InsnList insns, Collection<AbstractInsnNode> nodes) {
-            LinkedHashSet<AbstractInsnNode> allNodes = new LinkedHashSet<AbstractInsnNode>();
+            LinkedHashSet<AbstractInsnNode> allNodes = new LinkedHashSet<>();
 
             for (int i = 0; i < this.components.length; i++) {
                 this.components[i].find(desc, insns, allNodes);
@@ -526,7 +526,7 @@ public abstract class InjectionPoint {
 
         @Override
         public boolean find(String desc, InsnList insns, Collection<AbstractInsnNode> nodes) {
-            List<AbstractInsnNode> list = (nodes instanceof List) ? (List<AbstractInsnNode>) nodes : new ArrayList<AbstractInsnNode>(nodes);
+            List<AbstractInsnNode> list = (nodes instanceof List) ? (List<AbstractInsnNode>) nodes : new ArrayList<>(nodes);
 
             this.input.find(desc, insns, nodes);
             

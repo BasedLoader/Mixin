@@ -196,7 +196,7 @@ public final class TargetSelector {
      /**
      * Registered dynamic selectors
      */
-    private static Map<String, DynamicSelectorEntry> dynamicSelectors = new LinkedHashMap<String, DynamicSelectorEntry>();
+    private static Map<String, DynamicSelectorEntry> dynamicSelectors = new LinkedHashMap<>();
     
     static {
         TargetSelector.registerBuiltIn(DynamicSelectorDesc.class);
@@ -305,7 +305,7 @@ public final class TargetSelector {
      *      parse ordering
      */
     public static Set<ITargetSelector> parseAndValidate(Iterable<?> selectors, ISelectorContext context) throws InvalidSelectorException {
-        Set<ITargetSelector> parsed = TargetSelector.parse(selectors, context, new LinkedHashSet<ITargetSelector>());
+        Set<ITargetSelector> parsed = TargetSelector.parse(selectors, context, new LinkedHashSet<>());
         for (ITargetSelector selector : parsed) {
             selector.validate();
         }
@@ -322,7 +322,7 @@ public final class TargetSelector {
      *      parse ordering
      */
     public static Set<ITargetSelector> parse(Iterable<?> selectors, ISelectorContext context) {
-        return TargetSelector.parse(selectors, context, new LinkedHashSet<ITargetSelector>());
+        return TargetSelector.parse(selectors, context, new LinkedHashSet<>());
     }
     
     /**
@@ -339,7 +339,7 @@ public final class TargetSelector {
      */
     public static Set<ITargetSelector> parse(Iterable<?> selectors, ISelectorContext context, Set<ITargetSelector> parsed) {
         if (parsed == null) {
-            parsed = new LinkedHashSet<ITargetSelector>();
+            parsed = new LinkedHashSet<>();
         }
         if (selectors != null) {
             for (Object selector : selectors) {
@@ -457,9 +457,9 @@ public final class TargetSelector {
      * @return query result
      */
     public static <TNode> Result<TNode> run(ITargetSelector selector, Iterable<ElementNode<TNode>> nodes) {
-        List<ElementNode<TNode>> candidates = new ArrayList<ElementNode<TNode>>();
+        List<ElementNode<TNode>> candidates = new ArrayList<>();
         ElementNode<TNode> exactMatch = TargetSelector.runSelector(selector, nodes, candidates);
-        return new Result<TNode>(exactMatch, candidates);
+        return new Result<>(exactMatch, candidates);
     }
     
     /**
@@ -472,7 +472,7 @@ public final class TargetSelector {
      */
     public static <TNode> Result<TNode> run(Iterable<ITargetSelector> selector, Iterable<ElementNode<TNode>> nodes) {
         ElementNode<TNode> exactMatch = null;
-        List<ElementNode<TNode>> candidates = new ArrayList<ElementNode<TNode>>();
+        List<ElementNode<TNode>> candidates = new ArrayList<>();
         
         for (ITargetSelector target : selector) {
             ElementNode<TNode> selectorExactMatch = TargetSelector.runSelector(target, nodes, candidates);
@@ -481,7 +481,7 @@ public final class TargetSelector {
             }
         }
         
-        return new Result<TNode>(exactMatch, candidates);
+        return new Result<>(exactMatch, candidates);
     }
 
     private static <TNode> ElementNode<TNode> runSelector(ITargetSelector selector, Iterable<ElementNode<TNode>> nodes,

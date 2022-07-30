@@ -165,7 +165,7 @@ public class InjectionNodes extends ArrayList<InjectionNodes.InjectionNode> {
          */
         public <V> InjectionNode decorate(String key, V value) {
             if (this.decorations == null) {
-                this.decorations = new HashMap<String, Object>();
+                this.decorations = new HashMap<>();
             }
             this.decorations.put(key, value);
             return this;

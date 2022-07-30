@@ -149,9 +149,9 @@ public class PrettyPrinter {
      */
     static class Table implements PrettyPrinter.IVariableWidthEntry {
         
-        final List<Column> columns = new ArrayList<Column>();
+        final List<Column> columns = new ArrayList<>();
         
-        final List<Row> rows = new ArrayList<Row>();
+        final List<Row> rows = new ArrayList<>();
         
         String format = "%s";
         
@@ -217,7 +217,7 @@ public class PrettyPrinter {
         }
 
         Object[] getTitles() {
-            List<Object> titles = new ArrayList<Object>();
+            List<Object> titles = new ArrayList<>();
             for (Column column : this.columns) {
                 titles.add(column.getTitle());
             }
@@ -391,7 +391,7 @@ public class PrettyPrinter {
     /**
      * Content lines
      */
-    private final List<Object> lines = new ArrayList<Object>();
+    private final List<Object> lines = new ArrayList<>();
     
     /**
      * Table 
@@ -798,7 +798,7 @@ public class PrettyPrinter {
     }
 
     private List<String> getWrapped(int width, String line, String indent) {
-        List<String> lines = new ArrayList<String>();
+        List<String> lines = new ArrayList<>();
         
         while (line.length() > width) {
             int wrapPoint = PrettyPrinter.lastBreakIndex(line, width);

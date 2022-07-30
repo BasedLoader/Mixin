@@ -181,7 +181,7 @@ public class CallbackInjector extends Injector {
 
             if (locals != null) {
                 int baseArgIndex = CallbackInjector.this.isStatic() ? 0 : 1;
-                argNames = new ArrayList<String>();
+                argNames = new ArrayList<>();
                 for (int l = 0; l <= locals.length; l++) {
                     if (l == this.frameSize) {
                         argNames.add(target.returnType == Type.VOID_TYPE ? "ci" : "cir");
@@ -384,7 +384,7 @@ public class CallbackInjector extends Injector {
     /**
      * Injection point ids
      */
-    private final Map<Integer, String> ids = new HashMap<Integer, String>();
+    private final Map<Integer, String> ids = new HashMap<>();
 
     /**
      * Total number of times this injector will be injected into the target. If
@@ -801,7 +801,7 @@ public class CallbackInjector extends Injector {
             if (injectorLocals != null) {
                 int targetArgc = callback.target.arguments.length + 1;
                 List<String> actualInjectorLocals = CallbackInjector.summariseLocals(callbackMethod.desc, targetArgc, 255);
-                List<Integer> matchedIndexes = new ArrayList<Integer>();
+                List<Integer> matchedIndexes = new ArrayList<>();
                 for (int i = 0, realI = 0; i < injectorLocals.size(); i++) {
                     for (; realI < localTypes.length; realI++) {
                         if (localTypes[realI].getDescriptor().equals(actualInjectorLocals.get(i))) {
@@ -899,7 +899,7 @@ public class CallbackInjector extends Injector {
     }
 
     private static List<String> summariseLocals(Type[] locals, int pos, int count) {
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         if (locals != null) {
             for (; pos < locals.length && list.size() < count; pos++) {
                 if (locals[pos] != null) {

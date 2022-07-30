@@ -134,7 +134,7 @@ public class BeforeNew extends InjectionPoint {
         boolean found = false;
         int ordinal = 0;
 
-        Collection<TypeInsnNode> newNodes = new ArrayList<TypeInsnNode>();
+        Collection<TypeInsnNode> newNodes = new ArrayList<>();
         Collection<AbstractInsnNode> candidates = (Collection<AbstractInsnNode>) (this.desc != null ? newNodes : nodes);
         ListIterator<AbstractInsnNode> iter = insns.iterator();
         while (iter.hasNext()) {

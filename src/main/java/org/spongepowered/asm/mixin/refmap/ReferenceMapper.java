@@ -231,7 +231,7 @@ public final class ReferenceMapper implements IReferenceMapper, Serializable {
         }
         Map<String, String> classMappings = mappings.get(className);
         if (classMappings == null) {
-            classMappings = new HashMap<String, String>();
+            classMappings = new HashMap<>();
             mappings.put(className, classMappings);
         }
         return classMappings.put(conformedReference, newReference);

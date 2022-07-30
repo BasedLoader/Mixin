@@ -143,7 +143,7 @@ public class BeforeInvoke extends InjectionPoint {
     }
 
     private String getClassName() {
-        AtCode atCode = this.getClass().<AtCode>getAnnotation(AtCode.class);
+        AtCode atCode = this.getClass().getAnnotation(AtCode.class);
         return String.format("@At(%s)", atCode != null ? atCode.value() : this.getClass().getSimpleName().toUpperCase(Locale.ROOT));
     }
 
@@ -167,11 +167,10 @@ public class BeforeInvoke extends InjectionPoint {
     public boolean find(String desc, InsnList insns, Collection<AbstractInsnNode> nodes) {
         this.log("{}->{} is searching for an injection point in method with descriptor {}", this.context, this.className, desc);
         
-        boolean hasDescriptor = this.target instanceof ITargetSelectorByName && ((ITargetSelectorByName)this.target).getDesc() == null;
         boolean found = this.find(desc, insns, nodes, this.target, SearchType.STRICT);
 
-        if (!found && hasDescriptor && this.allowPermissive) {
-            this.logger.warn("STRICT match for {} using \"{}\" in {} returned 0 results, attempting permissive search. "
+        if (!found) {
+            this.logger.debug("STRICT match for {} using \"{}\" in {} returned 0 results, attempting permissive search. "
                     + "To inhibit permissive search set mixin.env.allowPermissiveMatch=false", this.className, this.target, this.mixin);
             found = this.find(desc, insns, nodes, this.target, SearchType.PERMISSIVE);
         }
@@ -188,35 +187,32 @@ public class BeforeInvoke extends InjectionPoint {
                 .configure(Configure.SELECT_INSTRUCTION);
         
         int ordinal = 0, found = 0, matchCount = 0;
-        
-        ListIterator<AbstractInsnNode> iter = insns.iterator();
-        while (iter.hasNext()) {
-            AbstractInsnNode insn = iter.next();
 
-            if (this.matchesInsn(insn)) {
-                MemberInfo nodeInfo = new MemberInfo(insn);
-                this.log("{}->{} is considering {}", this.context, this.className, nodeInfo);
+		for (AbstractInsnNode insn : insns) {
+			if (this.matchesInsn(insn)) {
+				MemberInfo nodeInfo = new MemberInfo(insn);
+				this.log("{}->{} is considering {}", this.context, this.className, nodeInfo);
 
-                if (target.match(ElementNode.<AbstractInsnNode>of(insn)).isExactMatch()) {
-                    this.log("{}->{} > found a matching insn, checking preconditions...", this.context, this.className);
-                    if (++matchCount > target.getMaxMatchCount()) {
-                        break;
-                    }
-                    
-                    if (this.matchesOrdinal(ordinal)) {
-                        this.log("{}->{} > > > found a matching insn at ordinal {}", this.context, this.className, ordinal);
-                        
-                        if (this.addInsn(insns, nodes, insn)) {
-                            found++;
-                        }
-                    }
-                    
-                    ordinal++;
-                }
-            }
+				if (target.match(ElementNode.of(insn)).isMatch()) {
+					this.log("{}->{} > found a matching insn, checking preconditions...", this.context, this.className);
+					if (++matchCount > target.getMaxMatchCount()) {
+						break;
+					}
 
-            this.inspectInsn(desc, insns, insn);
-        }
+					if (this.matchesOrdinal(ordinal)) {
+						this.log("{}->{} > > > found a matching insn at ordinal {}", this.context, this.className, ordinal);
+
+						if (this.addInsn(insns, nodes, insn)) {
+							found++;
+						}
+					}
+
+					ordinal++;
+				}
+			}
+
+			this.inspectInsn(desc, insns, insn);
+		}
         
         if (searchType == SearchType.PERMISSIVE && found > 1) {
             this.logger.warn("A permissive match for {} using \"{}\" in {} matched {} instructions, this may cause unexpected behaviour. "

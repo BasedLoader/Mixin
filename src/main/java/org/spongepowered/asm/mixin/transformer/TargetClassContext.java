@@ -118,27 +118,27 @@ final class TargetClassContext extends ClassContext implements ITargetClassConte
      * Information about methods in the target class, used to keep track of
      * transformations we apply
      */
-    private final Map<String, Target> targetMethods = new HashMap<String, Target>();
+    private final Map<String, Target> targetMethods = new HashMap<>();
 
     /**
      * Information about methods which have been discovered by mixin
      * preprocessors in this pass but which have not yet been merged into the
      * target class. 
      */
-    private final Set<MethodNode> mixinMethods = new HashSet<MethodNode>();
+    private final Set<MethodNode> mixinMethods = new HashSet<>();
     
     /**
      * Information about fields which have been discovered by mixin
      * preprocessors in this pass but which have not yet been merged into the
      * target class. 
      */
-    private final Set<FieldNode> mixinFields = new HashSet<FieldNode>();
+    private final Set<FieldNode> mixinFields = new HashSet<>();
 
     /**
      * Exceptions which were suppressed during mixin application because they
      * were raised by an optional mixin 
      */
-    private final List<InvalidMixinException> suppressedExceptions = new ArrayList<InvalidMixinException>();
+    private final List<InvalidMixinException> suppressedExceptions = new ArrayList<>();
 
     /**
      * True once mixins have been applied to this class 

@@ -425,7 +425,7 @@ public class Target implements Comparable<Target>, Iterable<AbstractInsnNode> {
      */
     public int[] generateArgMap(Type[] args, int start) {
         if (this.argMapVars == null) {
-            this.argMapVars = new ArrayList<Integer>();
+            this.argMapVars = new ArrayList<>();
         }
         
         int[] argMap = new int[args.length];
@@ -773,7 +773,7 @@ public class Target implements Comparable<Target>, Iterable<AbstractInsnNode> {
         }
         
         if (this.method.localVariables == null) {
-            this.method.localVariables = new ArrayList<LocalVariableNode>();
+            this.method.localVariables = new ArrayList<>();
         }
         
         for (Iterator<LocalVariableNode> iter = this.method.localVariables.iterator(); iter.hasNext();) {

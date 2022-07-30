@@ -1063,17 +1063,17 @@ public final class MixinEnvironment implements ITokenProvider {
     /**
      * List of token provider classes
      */
-    private final Set<String> tokenProviderClasses = new HashSet<String>();
+    private final Set<String> tokenProviderClasses = new HashSet<>();
     
     /**
      * List of token providers in this environment 
      */
-    private final List<TokenProviderWrapper> tokenProviders = new ArrayList<TokenProviderWrapper>();
+    private final List<TokenProviderWrapper> tokenProviders = new ArrayList<>();
     
     /**
      * Internal tokens defined by this environment
      */
-    private final Map<String, Integer> internalTokens = new HashMap<String, Integer>();
+    private final Map<String, Integer> internalTokens = new HashMap<>();
     
     /**
      * Remappers for this environment 
@@ -1181,7 +1181,7 @@ public final class MixinEnvironment implements ITokenProvider {
     public List<String> getMixinConfigs() {
         List<String> mixinConfigs = GlobalProperties.<List<String>>get(this.configsKey);
         if (mixinConfigs == null) {
-            mixinConfigs = new ArrayList<String>();
+            mixinConfigs = new ArrayList<>();
             GlobalProperties.put(this.configsKey, mixinConfigs);
         }
         return mixinConfigs;
@@ -1602,7 +1602,7 @@ public final class MixinEnvironment implements ITokenProvider {
      * @param phase phase to go to 
      */
     @SuppressWarnings("deprecation")
-    static void gotoPhase(Phase phase) {
+    public static void gotoPhase(Phase phase) {
         if (phase == null || phase.ordinal < 0) {
             throw new IllegalArgumentException("Cannot go to the specified phase, phase is null or invalid");
         }

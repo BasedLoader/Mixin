@@ -63,7 +63,7 @@ public abstract class MixinServiceAbstract implements IMixinService {
     /**
      * Cached logger adapters 
      */
-    private static final Map<String, ILogger> loggers = new HashMap<String, ILogger>();
+    private static final Map<String, ILogger> loggers = new HashMap<>();
 
     /**
      * Transformer re-entrance lock, shared between the mixin transformer and
@@ -74,7 +74,7 @@ public abstract class MixinServiceAbstract implements IMixinService {
     /**
      * All internals offered to this service
      */
-    private final Map<Class<IMixinInternal>, IMixinInternal> internals = new HashMap<Class<IMixinInternal>, IMixinInternal>();
+    private final Map<Class<IMixinInternal>, IMixinInternal> internals = new HashMap<>();
     
     /**
      * Service agent instances 
@@ -237,7 +237,7 @@ public abstract class MixinServiceAbstract implements IMixinService {
         if (this.serviceAgents != null) {
             return this.serviceAgents;
         }
-        this.serviceAgents = new ArrayList<IMixinPlatformServiceAgent>();
+        this.serviceAgents = new ArrayList<>();
         for (String agentClassName : this.getPlatformAgents()) {
             try {
                 @SuppressWarnings("unchecked")

@@ -34,7 +34,7 @@ import java.util.List;
  */
 public final class CommandLineOptions {
     
-    private List<String> configs = new ArrayList<String>();
+    private List<String> configs = new ArrayList<>();
     
     private CommandLineOptions() {
     }

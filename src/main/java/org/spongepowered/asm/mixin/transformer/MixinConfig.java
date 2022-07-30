@@ -155,7 +155,7 @@ final class MixinConfig implements Comparable<MixinConfig>, IMixinConfig {
     /**
      * Global list of mixin classes, so we can skip any duplicates
      */
-    private static final Set<String> globalMixinList = new HashSet<String>();
+    private static final Set<String> globalMixinList = new HashSet<>();
     
     /**
      * Log even more things
@@ -165,22 +165,22 @@ final class MixinConfig implements Comparable<MixinConfig>, IMixinConfig {
     /**
      * Map of mixin target classes to mixin infos
      */
-    private final transient Map<String, List<MixinInfo>> mixinMapping = new HashMap<String, List<MixinInfo>>();
+    private final transient Map<String, List<MixinInfo>> mixinMapping = new HashMap<>();
     
     /**
      * Targets for this configuration which haven't been mixed yet 
      */
-    private final transient Set<String> unhandledTargets = new HashSet<String>();
+    private final transient Set<String> unhandledTargets = new HashSet<>();
     
     /**
      * Mixins which have been parsed but not yet prepared 
      */
-    private final transient List<MixinInfo> pendingMixins = new ArrayList<MixinInfo>();
+    private final transient List<MixinInfo> pendingMixins = new ArrayList<>();
     
     /**
      * All mixins loaded by this config 
      */
-    private final transient List<MixinInfo> mixins = new ArrayList<MixinInfo>();
+    private final transient List<MixinInfo> mixins = new ArrayList<>();
     
     /**
      * Marshal 
@@ -311,7 +311,7 @@ final class MixinConfig implements Comparable<MixinConfig>, IMixinConfig {
      */
     private final transient int order = MixinConfig.configOrder++;
     
-    private final transient List<IListener> listeners = new ArrayList<IListener>();
+    private final transient List<IListener> listeners = new ArrayList<>();
     
 //    /**
 //     * Phase selector
@@ -1137,7 +1137,7 @@ final class MixinConfig implements Comparable<MixinConfig>, IMixinConfig {
     @Override
     public <V> void decorate(String key, V value) {
         if (this.decorations == null) {
-            this.decorations = new HashMap<String, Object>();
+            this.decorations = new HashMap<>();
         }
         if (this.decorations.containsKey(key)) {
             throw new IllegalArgumentException(String.format("Decoration with key '%s' already exists on config %s", key, this));
@@ -1230,7 +1230,7 @@ final class MixinConfig implements Comparable<MixinConfig>, IMixinConfig {
     private List<MixinInfo> mixinsFor(String targetClass) {
         List<MixinInfo> mixins = this.mixinMapping.get(targetClass);
         if (mixins == null) {
-            mixins = new ArrayList<MixinInfo>();
+            mixins = new ArrayList<>();
             this.mixinMapping.put(targetClass, mixins);
         }
         return mixins;

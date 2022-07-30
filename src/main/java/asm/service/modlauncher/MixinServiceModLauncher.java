@@ -22,14 +22,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.asm.service.modlauncher;
+package asm.service.modlauncher;
 
 import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.util.Collection;
 
-import org.spongepowered.asm.launch.IClassProcessor;
-import org.spongepowered.asm.launch.platform.container.ContainerHandleModLauncher;
+import asm.launch.IClassProcessor;
+import asm.launch.platform.container.ContainerHandleModLauncher;
 import org.spongepowered.asm.logging.ILogger;
 import org.spongepowered.asm.mixin.MixinEnvironment.CompatibilityLevel;
 import org.spongepowered.asm.mixin.MixinEnvironment.Phase;

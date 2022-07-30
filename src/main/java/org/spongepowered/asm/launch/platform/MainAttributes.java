@@ -51,7 +51,7 @@ import com.google.common.io.ByteSource;
  */
 public final class MainAttributes {
     
-    private static final Map<URI, MainAttributes> instances = new HashMap<URI, MainAttributes>();
+    private static final Map<URI, MainAttributes> instances = new HashMap<>();
     
     /**
      * Manifest from jar

@@ -171,7 +171,7 @@ public class ExtensionCheckInterfaces implements IExtension {
         printer.add("%-32s %-47s  %s", "Return Type", "Missing Method", "From Interface").hr();
 
         Set<Method> interfaceMethods = targetClassInfo.getInterfaceMethods(true);
-        Set<Method> implementedMethods = new HashSet<Method>(targetClassInfo.getSuperClass().getInterfaceMethods(true));
+        Set<Method> implementedMethods = new HashSet<>(targetClassInfo.getSuperClass().getInterfaceMethods(true));
         implementedMethods.addAll(this.interfaceMethods.removeAll(targetClassInfo));
 
         for (Method method : interfaceMethods) {

@@ -164,7 +164,7 @@ public class SourceMap {
          */
         public final String name;
         
-        private final Map<String, File> files = new LinkedHashMap<String, File>();
+        private final Map<String, File> files = new LinkedHashMap<>();
         
         public Stratum(String name) {
             this.name = name;
@@ -203,7 +203,7 @@ public class SourceMap {
     /**
      * SMAP strata
      */
-    private final Map<String, Stratum> strata = new LinkedHashMap<String, Stratum>();
+    private final Map<String, Stratum> strata = new LinkedHashMap<>();
     
     private int nextLineOffset = 1;
     

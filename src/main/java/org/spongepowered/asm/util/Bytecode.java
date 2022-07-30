@@ -745,7 +745,7 @@ public final class Bytecode {
      * @return map of existing labels to their cloned counterparts
      */
     public static Map<LabelNode, LabelNode> cloneLabels(InsnList source) {
-        Map<LabelNode, LabelNode> labels = new HashMap<LabelNode, LabelNode>();
+        Map<LabelNode, LabelNode> labels = new HashMap<>();
         
         for (Iterator<AbstractInsnNode> iter = source.iterator(); iter.hasNext();) {
             AbstractInsnNode insn = iter.next();
@@ -1347,7 +1347,7 @@ public final class Bytecode {
         }
         
         if (destination == null) {
-            return new ArrayList<T>(source);
+            return new ArrayList<>(source);
         }
         
         destination.addAll(source);

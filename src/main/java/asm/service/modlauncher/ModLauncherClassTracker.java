@@ -22,7 +22,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.asm.service.modlauncher;
+package asm.service.modlauncher;
 
 import java.util.EnumSet;
 import java.util.HashSet;
@@ -30,8 +30,8 @@ import java.util.Set;
 
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.ClassNode;
-import org.spongepowered.asm.launch.IClassProcessor;
-import org.spongepowered.asm.launch.Phases;
+import asm.launch.IClassProcessor;
+import asm.launch.Phases;
 import org.spongepowered.asm.service.IClassTracker;
 
 import cpw.mods.modlauncher.api.ITransformerActivity;

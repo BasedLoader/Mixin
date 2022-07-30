@@ -35,7 +35,7 @@ import org.spongepowered.asm.mixin.extensibility.IRemapper;
  */
 public class RemapperChain implements IRemapper {
     
-    private final List<IRemapper> remappers = new ArrayList<IRemapper>();
+    private final List<IRemapper> remappers = new ArrayList<>();
     
     @Override
     public String toString() {

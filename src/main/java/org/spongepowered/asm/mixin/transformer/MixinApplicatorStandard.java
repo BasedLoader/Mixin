@@ -283,7 +283,7 @@ class MixinApplicatorStandard {
      * Apply supplied mixins to the target class
      */
     final void apply(SortedSet<MixinInfo> mixins) {
-        List<MixinTargetContext> mixinContexts = new ArrayList<MixinTargetContext>();
+        List<MixinTargetContext> mixinContexts = new ArrayList<>();
         
         for (Iterator<MixinInfo> iter = mixins.iterator(); iter.hasNext();) {
             MixinInfo mixin = iter.next();
@@ -889,7 +889,7 @@ class MixinApplicatorStandard {
         
         // Now we know where the constructor is, look for insns which lie OUTSIDE the method body
         int line = 0;
-        Deque<AbstractInsnNode> initialiser = new ArrayDeque<AbstractInsnNode>();
+        Deque<AbstractInsnNode> initialiser = new ArrayDeque<>();
         boolean gatherNodes = false;
         int trimAtOpcode = -1;
         LabelNode optionalInsn = null;
@@ -984,7 +984,7 @@ class MixinApplicatorStandard {
      * @return target node
      */
     protected AbstractInsnNode findInitialiserInjectionPoint(MixinTargetContext mixin, MethodNode ctor, Deque<AbstractInsnNode> initialiser) {
-        Set<String> initialisedFields = new HashSet<String>();
+        Set<String> initialisedFields = new HashSet<>();
         for (AbstractInsnNode initialiserInsn : initialiser) {
             if (initialiserInsn.getOpcode() == Opcodes.PUTFIELD) {
                 initialisedFields.add(MixinApplicatorStandard.fieldKey((FieldInsnNode)initialiserInsn)); 

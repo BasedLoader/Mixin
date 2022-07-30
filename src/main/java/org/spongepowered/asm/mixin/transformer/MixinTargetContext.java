@@ -136,17 +136,17 @@ public class MixinTargetContext extends ClassContext implements IMixinContext {
     /**
      * Shadow method list
      */
-    private final List<MethodNode> shadowMethods = new ArrayList<MethodNode>();
+    private final List<MethodNode> shadowMethods = new ArrayList<>();
 
     /**
      * Shadow field list
      */
-    private final Map<FieldNode, Field> shadowFields = new LinkedHashMap<FieldNode, Field>();
+    private final Map<FieldNode, Field> shadowFields = new LinkedHashMap<>();
 
     /**
      * List of methods successfully merged from this mixin
      */
-    private final List<MethodNode> mergedMethods = new ArrayList<MethodNode>();
+    private final List<MethodNode> mergedMethods = new ArrayList<>();
 
     /**
      * Injector groups 
@@ -156,12 +156,12 @@ public class MixinTargetContext extends ClassContext implements IMixinContext {
     /**
      * Injectors for this target 
      */
-    private final List<InjectionInfo> injectors = new ArrayList<InjectionInfo>();
+    private final List<InjectionInfo> injectors = new ArrayList<>();
 
     /**
      * Accessor method list
      */
-    private final List<AccessorInfo> accessors = new ArrayList<AccessorInfo>();
+    private final List<AccessorInfo> accessors = new ArrayList<>();
 
     /**
      * True if this mixin inherits from a mixin at any point in its hierarchy 
@@ -1030,7 +1030,7 @@ public class MixinTargetContext extends ClassContext implements IMixinContext {
     }
     
     MethodNode findMethod(MethodNode method, AnnotationNode annotation) {
-        Deque<String> aliases = new LinkedList<String>();
+        Deque<String> aliases = new LinkedList<>();
         aliases.add(method.name);
         if (annotation != null) {
             List<String> aka = Annotations.<List<String>>getValue(annotation, "aliases");
@@ -1049,14 +1049,14 @@ public class MixinTargetContext extends ClassContext implements IMixinContext {
             return null;
         }
 
-        Deque<String> aliases = new LinkedList<String>();
+        Deque<String> aliases = new LinkedList<>();
         aliases.add(remappedName);
         
         return this.getTarget().findAliasedMethod(aliases, method.desc);
     }
     
     FieldNode findField(FieldNode field, AnnotationNode shadow) {
-        Deque<String> aliases = new LinkedList<String>();
+        Deque<String> aliases = new LinkedList<>();
         aliases.add(field.name);
         if (shadow != null) {
             List<String> aka = Annotations.<List<String>>getValue(shadow, "aliases");
@@ -1075,7 +1075,7 @@ public class MixinTargetContext extends ClassContext implements IMixinContext {
             return null;
         }
       
-        Deque<String> aliases = new LinkedList<String>();
+        Deque<String> aliases = new LinkedList<>();
         aliases.add(remappedName);
         return this.getTarget().findAliasedField( aliases, field.desc);
     }
@@ -1402,7 +1402,7 @@ public class MixinTargetContext extends ClassContext implements IMixinContext {
      */
     List<MethodNode> generateAccessors() {
         this.activities.clear();
-        List<MethodNode> methods = new ArrayList<MethodNode>();
+        List<MethodNode> methods = new ArrayList<>();
         
         try {
             IActivity accessorActivity = this.activities.begin("Locate");

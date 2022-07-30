@@ -397,7 +397,7 @@ public final class MethodSlice {
             return defaultValue;
         }
         
-        Deque<AbstractInsnNode> nodes = new LinkedList<AbstractInsnNode>();
+        Deque<AbstractInsnNode> nodes = new LinkedList<>();
         InsnListReadOnly insns = new InsnListReadOnly(method.instructions);
         boolean result = injectionPoint.find(method.desc, insns, nodes);
         Selector select = injectionPoint.getSelector();

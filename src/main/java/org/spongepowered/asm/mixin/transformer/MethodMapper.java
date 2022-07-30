@@ -51,13 +51,13 @@ class MethodMapper {
      */
     private static final ILogger logger = MixinService.getService().getLogger("mixin");
     
-    private static final List<String> classes = new ArrayList<String>();
+    private static final List<String> classes = new ArrayList<>();
     
     /**
      * Method descriptor to ID map, used to ensure that remappings are globally
      * unique 
      */
-    private static final Map<String, Counter> methods = new HashMap<String, Counter>();
+    private static final Map<String, Counter> methods = new HashMap<>();
 
     private final ClassInfo info;
 

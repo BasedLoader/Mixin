@@ -45,19 +45,19 @@ public final class Extensions implements IExtensionRegistry {
     /**
      * All transformer extensions
      */
-    private final List<IExtension> extensions = new ArrayList<IExtension>();
+    private final List<IExtension> extensions = new ArrayList<>();
     
     /**
      * Map of extension class types to extension instances, used to fetch
      * generators using {@link #getExtension}
      */
     private final Map<Class<? extends IExtension>, IExtension> extensionMap
-            = new HashMap<Class<? extends IExtension>, IExtension>();
+            = new HashMap<>();
 
     /**
      * Modules which generate synthetic classes required by mixins 
      */
-    private final List<IClassGenerator> generators = new ArrayList<IClassGenerator>();
+    private final List<IClassGenerator> generators = new ArrayList<>();
     
     /**
      * Read-only view of available generators
@@ -69,7 +69,7 @@ public final class Extensions implements IExtensionRegistry {
      * generators using {@link #getGenerator}
      */
     private final Map<Class<? extends IClassGenerator>, IClassGenerator> generatorMap
-            = new HashMap<Class<? extends IClassGenerator>, IClassGenerator>();
+            = new HashMap<>();
     
     private final ISyntheticClassRegistry syntheticClassRegistry;
     

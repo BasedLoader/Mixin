@@ -207,7 +207,7 @@ public final class DescriptorResolver {
      */
     static class ResolverObserverBasic implements IResolverObserver {
         
-        private final Set<String> searched = new LinkedHashSet<String>();
+        private final Set<String> searched = new LinkedHashSet<>();
         
         @Override
         public void visit(String coordinate, Object element, String detail) {

@@ -225,7 +225,7 @@ public class RedirectInjector extends InvokeInjector {
      */
     protected Meta meta;
 
-    private Map<BeforeNew, ConstructorRedirectData> ctorRedirectors = new HashMap<BeforeNew, ConstructorRedirectData>();
+    private Map<BeforeNew, ConstructorRedirectData> ctorRedirectors = new HashMap<>();
     
     /**
      * @param info Injection info
@@ -380,8 +380,9 @@ public class RedirectInjector extends InvokeInjector {
     @Override
     protected void injectAtInvoke(Target target, InjectionNode node) {
         RedirectedInvokeData invoke = new RedirectedInvokeData(target, (MethodInsnNode)node.getCurrentTarget());
-        
-        this.validateParams(invoke, invoke.returnType, invoke.handlerArgs);
+
+        // TODO: maybe not the best solution, but for now this just slows us down
+        //this.validateParams(invoke, invoke.returnType, invoke.handlerArgs);
         
         InsnList insns = new InsnList();
         Extension extraLocals = target.extendLocals().add(invoke.handlerArgs).add(1);

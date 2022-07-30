@@ -47,7 +47,7 @@ public final class MethodSlices {
     /**
      * Available slices
      */
-    private final Map<String, MethodSlice> slices = new HashMap<String, MethodSlice>(4);
+    private final Map<String, MethodSlice> slices = new HashMap<>(4);
     
     /**
      * ctor

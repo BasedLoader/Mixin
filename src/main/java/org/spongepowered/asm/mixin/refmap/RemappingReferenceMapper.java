@@ -63,7 +63,7 @@ public final class RemappingReferenceMapper implements IClassReferenceMapper, IR
     /**
      * A map between reference mapper values and their remapped equivalents.
      */
-    private final Map<String, String> mappedReferenceCache = new HashMap<String, String>();
+    private final Map<String, String> mappedReferenceCache = new HashMap<>();
 
     private RemappingReferenceMapper(MixinEnvironment env, IReferenceMapper refMap) {
         this.refMap = refMap;

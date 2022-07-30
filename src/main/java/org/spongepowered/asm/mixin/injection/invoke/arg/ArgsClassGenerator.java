@@ -132,12 +132,12 @@ public final class ArgsClassGenerator implements IClassGenerator {
     /**
      * Map of descriptors to generated class infos
      */
-    private final Map<String, ArgsClassInfo> descToClass = new HashMap<String, ArgsClassInfo>();
+    private final Map<String, ArgsClassInfo> descToClass = new HashMap<>();
     
     /**
      * Map of class names to generated class infos
      */
-    private final Map<String, ArgsClassInfo> nameToClass = new HashMap<String, ArgsClassInfo>();
+    private final Map<String, ArgsClassInfo> nameToClass = new HashMap<>();
     
     /**
      * Ctor

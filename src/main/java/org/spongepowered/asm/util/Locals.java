@@ -264,7 +264,7 @@ public final class Locals {
      * Cached local variable lists, to avoid having to recalculate them
      * (expensive) if multiple injectors are working with the same method
      */
-    private static final Map<String, List<LocalVariableNode>> calculatedLocalVariables = new HashMap<String, List<LocalVariableNode>>();
+    private static final Map<String, List<LocalVariableNode>> calculatedLocalVariables = new HashMap<>();
     
     private Locals() {
         // utility class
@@ -841,7 +841,7 @@ public final class Locals {
     public static List<LocalVariableNode> generateLocalVariableTable(ClassNode classNode, MethodNode method) {
         List<Type> interfaces = null;
         if (classNode.interfaces != null) {
-            interfaces = new ArrayList<Type>();
+            interfaces = new ArrayList<>();
             for (String iface : classNode.interfaces) {
                 interfaces.add(Type.getObjectType(iface));
             }
@@ -853,7 +853,7 @@ public final class Locals {
         }
 
         // Use Analyzer to generate the bytecode frames
-        Analyzer<BasicValue> analyzer = new Analyzer<BasicValue>(
+        Analyzer<BasicValue> analyzer = new Analyzer<>(
                 new MixinVerifier(ASM.API_VERSION, Type.getObjectType(classNode.name), objectType, interfaces, false));
         try {
             analyzer.analyze(classNode.name, method);
@@ -868,7 +868,7 @@ public final class Locals {
         int methodSize = method.instructions.size();
 
         // List of LocalVariableNodes to return
-        List<LocalVariableNode> localVariables = new ArrayList<LocalVariableNode>();
+        List<LocalVariableNode> localVariables = new ArrayList<>();
 
         LocalVariableNode[] localNodes = new LocalVariableNode[method.maxLocals]; // LocalVariableNodes for current frame
         BasicValue[] locals = new BasicValue[method.maxLocals]; // locals in previous frame, used to work out what changes between frames

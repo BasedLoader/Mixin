@@ -222,7 +222,7 @@ public class AccessorInfo extends SpecialMethodInfo {
         }
 
         private static String getPrefixList() {
-            List<String> prefixes = new ArrayList<String>();
+            List<String> prefixes = new ArrayList<>();
             for (AccessorType type : AccessorType.values()) {
                 prefixes.addAll(type.getExpectedPrefixes());
             }

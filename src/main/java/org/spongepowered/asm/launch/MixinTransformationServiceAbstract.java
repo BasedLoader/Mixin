@@ -22,7 +22,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package asm.launch;
+package org.spongepowered.asm.launch;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -44,6 +44,7 @@ import joptsimple.ArgumentAcceptingOptionSpec;
 import joptsimple.OptionSpecBuilder;
 import org.spongepowered.asm.launch.MixinBootstrap;
 import org.spongepowered.asm.launch.MixinInitialisationError;
+import org.spongepowered.asm.launch.MixinLaunchPluginLegacy;
 
 /**
  * Service for handling transforms mixin under ModLauncher, now abstract to
